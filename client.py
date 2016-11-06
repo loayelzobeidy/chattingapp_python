@@ -37,7 +37,7 @@ class Client :
     #done
     def createConnection(self,name):
         host   = socket.gethostname() 
-        port   = 12399
+        port   = 14000
         self.socket1.connect((host,port))
         mess=self.socket1.recv(1024)
         self.socket1.send(name)	
@@ -46,11 +46,12 @@ class Client :
     #done
     def Recieve(self,name,s):
     	while 1:
-    		message =(self.socket1.recv(1024))
-    		print (message+"here")
-    		newText = self.textfield.text()+message
-    		print(newText)
-    		self.textfield.setText(newText)
+    		self.textfield.setText(self.socket1.recv(1024))
+    		# message =(self.socket1.recv(1024))
+    		# print (message+"here")
+    		# newText = "hahahaha"+self.textfield.text()+message
+    		# print(newText)
+    		
 
 
 		#done 
